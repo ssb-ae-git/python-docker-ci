@@ -6,7 +6,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/ssb-ae-git/python-docker-ci.git'
+                git branch: 'main', url: 'https://github.com/ssb-ae-git/python-docker-ci.git'
             }
         }
 
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh '''
                 docker rm -f python-container || true
-                docker run -d -p 5000:000 --name python-container python-ci-lab
+                docker run -d -p 5000:5000 --name python-container python-ci-lab
                 '''
             }
         }
