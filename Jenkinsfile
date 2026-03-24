@@ -2,6 +2,8 @@ pipeline {
 
     agent { label 'my_Slave' }
     
+    environment { PATH = "/usr/local/bin:/usr/bin:${env.PATH}" }
+
     stages {
 
         stage('Checkout Code') {
@@ -12,7 +14,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh '/usr/local/bin/docker build -t python-ci-lab .'
+                sh 'docker build -t python-ci-lab .'
             }
         }
 
