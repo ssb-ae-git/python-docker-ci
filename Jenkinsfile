@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/ssb-ae-git/python-docker-ci.git'
+                git branch: 'main', url: 'https://github.com/ssb-ae-git/python-docker-ci.git'
             }
         }
 
