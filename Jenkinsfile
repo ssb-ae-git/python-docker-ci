@@ -40,16 +40,10 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh '''
-                kubectl set image deployment/testapp-deployment \
-                calculatorAgeApp=$DOCKER_IMAGE:$IMAGE_TAG
-                '''
-            }
-        }
-
-        stage('Verify Deployment') {
-            steps {
-                sh 'kubectl rollout status deployment/testapp-deployment'
+		sh '''
+		docker rm -f python-container || true
+		docker run -d -p 5000:5000 --name python-container python-ci-lab
+		'''
             }
         }
     }
