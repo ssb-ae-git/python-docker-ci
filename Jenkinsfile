@@ -3,7 +3,7 @@ pipeline {
 
     environment { 
         PATH = "/usr/local/bin:/usr/bin:${env.PATH}"
-        DOCKER_IMAGE = "ssb-ae-docker/python-ci-lab"
+        DOCKER_IMAGE = "ssbaedocker/python-ci-lab"
         IMAGE_TAG = "v1.0.0"
     }
 
